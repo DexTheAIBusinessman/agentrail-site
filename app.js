@@ -1,5 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
-
+const API_BASE = "https://agentrail-api.onrender.com";
 function prettyJson(data) {
   return JSON.stringify(data, null, 2);
 }
