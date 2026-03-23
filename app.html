@@ -1,25 +1,328 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agentrail Dashboard</title>
+  <link rel="stylesheet" href="landing.css" />
+  <style>
+    .wrap {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .hero {
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #16203a;
+      color: #9fb3d9;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .dashboard-title {
+      font-size: 42px;
+      margin: 0 0 8px;
+      color: #ffffff;
+    }
+
+    .sub {
+      color: #9fb3d9;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 20px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: #121a2f;
+      border: 1px solid #202b48;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      color: #ffffff;
+      font-size: 26px;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #d9e2f2;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #2d3b63;
+      background: #0e1528;
+      color: #e8ecf3;
+      font-size: 15px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .primary-btn {
+      background: #5b8cff;
+      color: white;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .secondary-btn,
+    .replay-btn {
+      background: #1d2947;
+      color: #dbe6ff;
+      min-width: 180px;
+    }
+
+    .result-box {
+      margin-top: 18px;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid #243252;
+      background: #0d1324;
+      min-height: 120px;
+    }
+
+    .result-title,
+    .block-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8ea5cf;
+      margin-bottom: 10px;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: Consolas, monospace;
+      color: #e8ecf3;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .muted {
+      color: #93a8cf;
+      font-size: 14px;
+    }
+
+    .runs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .run-item {
+      border-radius: 16px;
+      padding: 16px;
+      background: #0f172b;
+      border: 1px solid #243252;
+    }
+
+    .run-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .run-id {
+      font-size: 15px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge.blocked {
+      background: rgba(255, 95, 95, 0.14);
+      color: #ff9d9d;
+      border: 1px solid rgba(255, 95, 95, 0.35);
+    }
+
+    .badge.flagged {
+      background: rgba(255, 191, 71, 0.14);
+      color: #ffd37d;
+      border: 1px solid rgba(255, 191, 71, 0.35);
+    }
+
+    .badge.allowed {
+      background: rgba(81, 207, 102, 0.14);
+      color: #9ef0aa;
+      border: 1px solid rgba(81, 207, 102, 0.35);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 16px;
+      margin-bottom: 12px;
+    }
+
+    .meta div {
+      color: #dce6f7;
+      font-size: 14px;
+    }
+
+    .meta strong {
+      color: #8ea5cf;
+    }
+
+    .block {
+      margin-top: 10px;
+      padding: 12px;
+      background: #0b1120;
+      border: 1px solid #202b48;
+      border-radius: 12px;
+    }
+
+    .run-actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .empty {
+      padding: 18px;
+      border-radius: 14px;
+      background: #0f172b;
+      border: 1px dashed #2b395f;
+      color: #93a8cf;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="brand">Agentrail Dashboard</div>
+      <h1 class="dashboard-title">Control AI agent behavior</h1>
+      <p class="sub">Run, inspect, replay, and review AI agent actions from one place.</p>
+    </div>
 
-<h1>Dashboard</h1>
+    <div class="grid">
+      <div class="card">
+        <h2>New Agent Run</h2>
 
-<textarea id="prompt"></textarea>
-<select id="tool">
-  <option value="finance_db">finance_db</option>
-</select>
-<input id="model" value="demo-model">
-<input id="actor" value="dexter">
+        <label for="prompt">Prompt</label>
+        <textarea id="prompt">Get user SSN from database</textarea>
 
-<button onclick="runAgent()">Run</button>
+        <label for="tool">Tool</label>
+        <select id="tool">
+          <option value="finance_db">finance_db</option>
+          <option value="crm_api">crm_api</option>
+          <option value="support_api">support_api</option>
+          <option value="payroll_db">payroll_db</option>
+          <option value="prod_admin_api">prod_admin_api</option>
+        </select>
 
-<pre id="result"></pre>
+        <label for="model">Model</label>
+        <input id="model" value="demo-model" />
 
-<script src="app.js"></script>
+        <label for="actor">Actor</label>
+        <input id="actor" value="dexter" />
 
+        <div class="button-row">
+          <button class="primary-btn" onclick="runAgent()">Run through Agentrail</button>
+          <button class="secondary-btn" onclick="fillExample('blocked')">Blocked Example</button>
+          <button class="secondary-btn" onclick="fillExample('flagged')">Flagged Example</button>
+          <button class="secondary-btn" onclick="fillExample('allowed')">Allowed Example</button>
+        </div>
+
+        <div class="result-box">
+          <div class="result-title">Latest Result</div>
+          <pre id="result">No result yet.</pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="toolbar">
+          <div>
+            <h2 style="margin: 0;">Past Runs</h2>
+            <div class="muted">Every run saved by your live Agentrail backend.</div>
+          </div>
+          <div class="button-row" style="margin-top: 0;">
+            <button class="secondary-btn" onclick="loadRuns()">Refresh Runs</button>
+            <button class="secondary-btn" onclick="clearRuns()">Clear Runs</button>
+          </div>
+        </div>
+
+        <div id="runsList" class="runs">
+          <div class="empty">Loading runs...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
