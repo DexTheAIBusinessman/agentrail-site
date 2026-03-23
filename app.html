@@ -4,186 +4,154 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agentrail Dashboard</title>
-  <link rel="stylesheet" href="landing.css" />
   <style>
-    .wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero {
-      margin-bottom: 24px;
-    }
-
-    .brand {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: #16203a;
-      color: #9fb3d9;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .topbar {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      padding: 22px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-btn {
+      background: #4f83ff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .nav-btn:hover {
+      background: #3d6fe6;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
       margin-bottom: 10px;
-      flex-wrap: wrap;
+      line-height: 1.1;
     }
 
-    .back-link {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 12px;
-      background: #16233f;
-      color: #d8e4ff;
-      border: 1px solid #26375b;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .dashboard-title {
-      font-size: 42px;
-      margin: 0 0 8px;
-      color: #ffffff;
-      line-height: 1.05;
-    }
-
-    .sub {
-      color: #9fb3d9;
-      font-size: 18px;
-      margin: 0;
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 30px;
+      font-size: 17px;
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
-      align-items: start;
-      margin-top: 24px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
 
     .card {
-      background: #121a2f;
-      border: 1px solid #202b48;
-      border-radius: 18px;
+      background: #111827;
       padding: 22px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      flex: 1;
+      min-width: 320px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
     }
 
     .card h2 {
       margin-top: 0;
       margin-bottom: 18px;
-      color: #ffffff;
-      font-size: 26px;
+      font-size: 20px;
     }
 
     label {
       display: block;
       margin-top: 14px;
       margin-bottom: 8px;
-      font-weight: 700;
-      color: #d9e2f2;
+      font-weight: 600;
+      color: #dbe4f0;
     }
 
-    input, select, textarea {
+    textarea,
+    select,
+    input {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid #2d3b63;
-      background: #0e1528;
-      color: #e8ecf3;
-      font-size: 15px;
-      outline: none;
+      margin-top: 0;
+      margin-bottom: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #1f2937;
+      color: white;
       box-sizing: border-box;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: #5b8cff;
-      box-shadow: 0 0 0 3px rgba(91, 140, 255, 0.18);
+      font-size: 15px;
     }
 
     textarea {
-      min-height: 130px;
+      min-height: 120px;
       resize: vertical;
+    }
+
+    textarea:focus,
+    select:focus,
+    input:focus {
+      outline: none;
+      border-color: #4f83ff;
+      box-shadow: 0 0 0 3px rgba(79,131,255,0.18);
     }
 
     .button-row {
       display: flex;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 6px;
     }
 
     button {
+      padding: 12px 14px;
+      border-radius: 10px;
       border: none;
-      border-radius: 12px;
-      padding: 12px 16px;
       cursor: pointer;
+      transition: 0.2s ease;
+      font-weight: 600;
       font-size: 14px;
-      font-weight: 700;
-      transition: transform 0.08s ease, opacity 0.12s ease, background 0.15s ease;
     }
 
-    button:hover {
-      opacity: 0.96;
-    }
-
-    button:active {
-      transform: translateY(1px);
-    }
-
-    .primary-btn {
-      background: #5b8cff;
+    .primary {
+      background: #4f83ff;
       color: white;
-      flex: 1;
-      min-width: 180px;
     }
 
-    .primary-btn:hover {
-      background: #4c7df0;
+    .primary:hover {
+      background: #3d6fe6;
     }
 
-    .secondary-btn {
-      background: #1d2947;
-      color: #dbe6ff;
-      min-width: 170px;
+    .secondary {
+      background: #374151;
+      color: white;
     }
 
-    .secondary-btn:hover,
-    .replay-btn:hover {
-      background: #24365c;
-    }
-
-    .result-box {
-      margin-top: 18px;
-      border-radius: 14px;
-      padding: 16px;
-      border: 1px solid #243252;
-      background: #0d1324;
-      min-height: 120px;
-    }
-
-    .result-title,
-    .block-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #8ea5cf;
-      margin-bottom: 10px;
-    }
-
-    pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: Consolas, monospace;
-      color: #e8ecf3;
+    .secondary:hover {
+      background: #4b5563;
     }
 
     .toolbar {
@@ -191,41 +159,83 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
-    .muted {
-      color: #93a8cf;
+    .hint {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      background: rgba(79,131,255,0.08);
+      color: #b7c7dc;
       font-size: 14px;
+      line-height: 1.5;
+      border: 1px solid rgba(79,131,255,0.15);
     }
 
-    .runs {
+    .result-card {
+      margin-top: 22px;
+      background: #111827;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .result-card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #dbe4f0;
+      margin: 0;
+      font-family: Consolas, monospace;
+    }
+
+    .empty {
+      color: #94a3b8;
+      padding: 20px 0;
+    }
+
+    .runs-list {
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
 
     .run-item {
-      border-radius: 16px;
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
       padding: 16px;
-      background: #0f172b;
-      border: 1px solid #243252;
+      transition: 0.2s ease;
     }
 
-    .run-head {
+    .run-item:hover {
+      border-color: rgba(79,131,255,0.45);
+      transform: translateY(-1px);
+    }
+
+    .run-top {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
       align-items: center;
-      margin-bottom: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-bottom: 10px;
     }
 
     .run-id {
-      font-size: 15px;
       font-weight: 700;
-      color: #ffffff;
     }
 
     .badge {
@@ -235,108 +245,78 @@
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
     }
 
     .badge.blocked {
-      background: rgba(255, 95, 95, 0.14);
-      color: #ff9d9d;
-      border: 1px solid rgba(255, 95, 95, 0.35);
+      background: rgba(239,68,68,0.18);
+      color: #fca5a5;
     }
 
     .badge.flagged {
-      background: rgba(255, 191, 71, 0.14);
-      color: #ffd37d;
-      border: 1px solid rgba(255, 191, 71, 0.35);
+      background: rgba(245,158,11,0.18);
+      color: #fcd34d;
     }
 
     .badge.allowed {
-      background: rgba(81, 207, 102, 0.14);
-      color: #9ef0aa;
-      border: 1px solid rgba(81, 207, 102, 0.35);
+      background: rgba(34,197,94,0.18);
+      color: #86efac;
     }
 
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 16px;
-      margin-bottom: 12px;
-    }
-
-    .meta div {
-      color: #dce6f7;
+    .run-meta {
+      color: #c9d4e3;
       font-size: 14px;
+      line-height: 1.6;
     }
 
-    .meta strong {
-      color: #8ea5cf;
-    }
-
-    .block {
-      margin-top: 10px;
-      padding: 12px;
-      background: #0b1120;
-      border: 1px solid #202b48;
-      border-radius: 12px;
+    .run-meta strong {
+      color: #ffffff;
     }
 
     .run-actions {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      margin-top: 12px;
     }
 
     .replay-btn {
-      background: #213154;
-      color: #dbe6ff;
+      background: #374151;
+      color: white;
     }
 
-    .empty {
-      padding: 18px;
-      border-radius: 14px;
-      background: #0f172b;
-      border: 1px dashed #2b395f;
-      color: #93a8cf;
-      text-align: center;
+    .replay-btn:hover {
+      background: #4b5563;
     }
 
-    .hint-strip {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(91, 140, 255, 0.08);
-      border: 1px solid rgba(91, 140, 255, 0.18);
-      color: #bfd0ef;
-      font-size: 14px;
-      line-height: 1.5;
-    }
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px;
+      }
 
-    @media (max-width: 900px) {
-      .dashboard-title {
-        font-size: 34px;
+      .header {
+        padding: 18px 24px;
+      }
+
+      h1 {
+        font-size: 28px;
       }
 
       .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .meta {
-        grid-template-columns: 1fr;
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="topbar">
-        <div class="brand">Agentrail Dashboard</div>
-        <a href="index.html" class="back-link">Back to Home</a>
-      </div>
 
-      <h1 class="dashboard-title">Control AI agent behavior</h1>
-      <p class="sub">Run, inspect, replay, and review AI agent actions from one place.</p>
+  <div class="header">
+    <div class="logo">Agentrail</div>
+    <button class="nav-btn" onclick="window.location.href='index.html'">
+      Back to Home
+    </button>
+  </div>
+
+  <div class="container">
+    <h1>Control AI agent behavior</h1>
+    <div class="subtitle">
+      Run, inspect, replay, and review AI agent actions from one place.
     </div>
 
     <div class="grid">
@@ -362,38 +342,35 @@
         <input id="actor" value="dexter" />
 
         <div class="button-row">
-          <button class="primary-btn" onclick="runAgent()">Run through Agentrail</button>
-          <button class="secondary-btn" onclick="fillExample('blocked')">Blocked Example</button>
-          <button class="secondary-btn" onclick="fillExample('flagged')">Flagged Example</button>
-          <button class="secondary-btn" onclick="fillExample('allowed')">Allowed Example</button>
+          <button class="primary" onclick="runAgent()">Run through Agentrail</button>
+          <button class="secondary" onclick="fillExample('blocked')">Blocked Example</button>
+          <button class="secondary" onclick="fillExample('flagged')">Flagged Example</button>
+          <button class="secondary" onclick="fillExample('allowed')">Allowed Example</button>
         </div>
 
-        <div class="result-box">
-          <div class="result-title">Latest Result</div>
-          <pre id="result">No result yet.</pre>
-        </div>
-
-        <div class="hint-strip">
-          Tip: On the free backend tier, the first request after inactivity can take a little longer while the server wakes up.
+        <div class="hint">
+          Tip: if the backend has been inactive, the first request can take a little longer while Render wakes it up.
         </div>
       </div>
 
       <div class="card">
         <div class="toolbar">
-          <div>
-            <h2 style="margin: 0;">Past Runs</h2>
-            <div class="muted">Every run saved by your live Agentrail backend.</div>
-          </div>
-          <div class="button-row" style="margin-top: 0;">
-            <button class="secondary-btn" onclick="loadRuns()">Refresh Runs</button>
-            <button class="secondary-btn" onclick="clearRuns()">Clear Runs</button>
+          <h2 style="margin:0;">Past Runs</h2>
+          <div class="toolbar-buttons">
+            <button class="secondary" onclick="loadRuns()">Refresh Runs</button>
+            <button class="secondary" onclick="clearRuns()">Clear Runs</button>
           </div>
         </div>
 
-        <div id="runsList" class="runs">
+        <div id="runsList" class="runs-list">
           <div class="empty">Loading runs...</div>
         </div>
       </div>
+    </div>
+
+    <div class="result-card">
+      <h2>Latest Result</h2>
+      <pre id="result" class="empty">No result yet.</pre>
     </div>
   </div>
 
