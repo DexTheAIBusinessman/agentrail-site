@@ -1,4 +1,5 @@
 const API_BASE = "https://agentrail-api.onrender.com";
+
 function prettyJson(data) {
   return JSON.stringify(data, null, 2);
 }
@@ -38,6 +39,14 @@ function fillExample(type) {
   }
 }
 
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, options);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}`);
+  }
+  return await response.json();
+}
+
 async function runAgent() {
   const prompt = document.getElementById("prompt").value;
   const tool = document.getElementById("tool").value;
@@ -47,7 +56,7 @@ async function runAgent() {
   setResult("Running...");
 
   try {
-    const response = await fetch(`${API_BASE}/run-agent`, {
+    const data = await fetchJson(`${API_BASE}/run-agent`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -55,11 +64,10 @@ async function runAgent() {
       body: JSON.stringify({ prompt, tool, model, actor })
     });
 
-    const data = await response.json();
     setResult(data);
     await loadRuns();
   } catch (error) {
-    setResult(`Error: ${error.message}`);
+    setResult(`Run error: ${error.message}`);
   }
 }
 
@@ -67,11 +75,10 @@ async function replayRun(runId) {
   setResult(`Replaying run ${runId}...`);
 
   try {
-    const response = await fetch(`${API_BASE}/replay/${runId}`, {
+    const data = await fetchJson(`${API_BASE}/replay/${runId}`, {
       method: "POST"
     });
 
-    const data = await response.json();
     setResult(data);
     await loadRuns();
   } catch (error) {
@@ -86,11 +93,10 @@ async function clearRuns() {
   setResult("Clearing all runs...");
 
   try {
-    const response = await fetch(`${API_BASE}/runs`, {
+    const data = await fetchJson(`${API_BASE}/runs`, {
       method: "DELETE"
     });
 
-    const data = await response.json();
     setResult(data);
     await loadRuns();
   } catch (error) {
@@ -135,8 +141,7 @@ async function loadRuns() {
   runsList.innerHTML = `<div class="empty">Loading runs...</div>`;
 
   try {
-    const response = await fetch(`${API_BASE}/runs`);
-    const runs = await response.json();
+    const runs = await fetchJson(`${API_BASE}/runs`);
 
     if (!runs.length) {
       runsList.innerHTML = `<div class="empty">No runs found yet.</div>`;
@@ -150,15 +155,3 @@ async function loadRuns() {
 }
 
 loadRuns();
-mkdir -p ~/projects/agentrail-site
-cp ~/projects/agentrail/dashboard/index.html ~/projects/agentrail-site/
-cp ~/projects/agentrail/dashboard/app.html ~/projects/agentrail-site/
-cp ~/projects/agentrail/dashboard/app.js ~/projects/agentrail-site/
-cp ~/projects/agentrail/dashboard/landing.css ~/projects/agentrail-site/
-cd ~/projects/agentrail-site
-git init
-git add .
-git commit -m "Initial Agentrail frontend"
-git branch -M main
-git remote add origin YOUR_AGENTRAIL_SITE_REPO_URL
-git push -u origin main
