@@ -1,328 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agentrail Dashboard</title>
-  <link rel="stylesheet" href="landing.css" />
   <style>
-    .wrap {
-      max-width: 1050px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
-    }
-
-    .hero {
-      margin-bottom: 24px;
-    }
-
-    .brand {
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #16203a;
-      color: #9fb3d9;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    .dashboard-title {
-      font-size: 42px;
-      margin: 0 0 8px;
-      color: #ffffff;
-    }
-
-    .sub {
-      color: #9fb3d9;
-      font-size: 18px;
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1220;
+      color: #fff;
       margin: 0;
+      padding: 0;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 20px;
-      align-items: start;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: #121a2f;
-      border: 1px solid #202b48;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      color: #ffffff;
-      font-size: 26px;
-    }
-
-    label {
-      display: block;
-      margin-top: 14px;
-      margin-bottom: 8px;
-      font-weight: 700;
-      color: #d9e2f2;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid #2d3b63;
-      background: #0e1528;
-      color: #e8ecf3;
-      font-size: 15px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .button-row {
+    /* Header */
+    .header {
       display: flex;
-      gap: 12px;
-      margin-top: 18px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    button {
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-btn {
+      background: #3b82f6;
       border: none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .primary-btn {
-      background: #5b8cff;
+      padding: 10px 16px;
+      border-radius: 8px;
       color: white;
-      flex: 1;
-      min-width: 180px;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    .secondary-btn,
-    .replay-btn {
-      background: #1d2947;
-      color: #dbe6ff;
-      min-width: 180px;
+    .nav-btn:hover {
+      background: #2563eb;
     }
 
-    .result-box {
-      margin-top: 18px;
-      border-radius: 14px;
-      padding: 16px;
-      border: 1px solid #243252;
-      background: #0d1324;
-      min-height: 120px;
+    /* Layout */
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .result-title,
-    .block-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #8ea5cf;
+    h1 {
+      font-size: 32px;
       margin-bottom: 10px;
     }
 
-    pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: Consolas, monospace;
-      color: #e8ecf3;
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 30px;
     }
 
-    .toolbar {
+    .grid {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
-    .muted {
-      color: #93a8cf;
-      font-size: 14px;
-    }
-
-    .runs {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .run-item {
-      border-radius: 16px;
-      padding: 16px;
-      background: #0f172b;
-      border: 1px solid #243252;
-    }
-
-    .run-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .run-id {
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .badge.blocked {
-      background: rgba(255, 95, 95, 0.14);
-      color: #ff9d9d;
-      border: 1px solid rgba(255, 95, 95, 0.35);
-    }
-
-    .badge.flagged {
-      background: rgba(255, 191, 71, 0.14);
-      color: #ffd37d;
-      border: 1px solid rgba(255, 191, 71, 0.35);
-    }
-
-    .badge.allowed {
-      background: rgba(81, 207, 102, 0.14);
-      color: #9ef0aa;
-      border: 1px solid rgba(81, 207, 102, 0.35);
-    }
-
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 16px;
-      margin-bottom: 12px;
-    }
-
-    .meta div {
-      color: #dce6f7;
-      font-size: 14px;
-    }
-
-    .meta strong {
-      color: #8ea5cf;
-    }
-
-    .block {
-      margin-top: 10px;
-      padding: 12px;
-      background: #0b1120;
-      border: 1px solid #202b48;
+    .card {
+      background: #111827;
+      padding: 20px;
       border-radius: 12px;
+      flex: 1;
+      min-width: 300px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
     }
 
-    .run-actions {
-      margin-top: 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    textarea, select, input {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #1f2937;
+      color: white;
+    }
+
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: 0.2s;
+    }
+
+    .primary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #2563eb;
+    }
+
+    .secondary {
+      background: #374151;
+      color: white;
+    }
+
+    .secondary:hover {
+      background: #4b5563;
     }
 
     .empty {
-      padding: 18px;
-      border-radius: 14px;
-      background: #0f172b;
-      border: 1px dashed #2b395f;
-      color: #93a8cf;
+      color: #64748b;
+      text-align: center;
+      padding: 30px;
     }
 
-    @media (max-width: 860px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .meta {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="brand">Agentrail Dashboard</div>
-      <h1 class="dashboard-title">Control AI agent behavior</h1>
-      <p class="sub">Run, inspect, replay, and review AI agent actions from one place.</p>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">Agentrail</div>
+    <button class="nav-btn" onclick="window.location.href='index.html'">
+      Back to Home
+    </button>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <h1>Control AI agent behavior</h1>
+    <div class="subtitle">
+      Run, inspect, replay, and review AI agent actions from one place.
     </div>
 
     <div class="grid">
+
+      <!-- LEFT -->
       <div class="card">
         <h2>New Agent Run</h2>
 
-        <label for="prompt">Prompt</label>
         <textarea id="prompt">Get user SSN from database</textarea>
 
-        <label for="tool">Tool</label>
+        <label>Tool</label>
         <select id="tool">
-          <option value="finance_db">finance_db</option>
-          <option value="crm_api">crm_api</option>
-          <option value="support_api">support_api</option>
-          <option value="payroll_db">payroll_db</option>
-          <option value="prod_admin_api">prod_admin_api</option>
+          <option>finance_db</option>
         </select>
 
-        <label for="model">Model</label>
+        <label>Model</label>
         <input id="model" value="demo-model" />
 
-        <label for="actor">Actor</label>
+        <label>Actor</label>
         <input id="actor" value="dexter" />
 
-        <div class="button-row">
-          <button class="primary-btn" onclick="runAgent()">Run through Agentrail</button>
-          <button class="secondary-btn" onclick="fillExample('blocked')">Blocked Example</button>
-          <button class="secondary-btn" onclick="fillExample('flagged')">Flagged Example</button>
-          <button class="secondary-btn" onclick="fillExample('allowed')">Allowed Example</button>
-        </div>
-
-        <div class="result-box">
-          <div class="result-title">Latest Result</div>
-          <pre id="result">No result yet.</pre>
-        </div>
+        <button class="primary" onclick="runAgent()">Run through Agentrail</button>
       </div>
 
+      <!-- RIGHT -->
       <div class="card">
-        <div class="toolbar">
-          <div>
-            <h2 style="margin: 0;">Past Runs</h2>
-            <div class="muted">Every run saved by your live Agentrail backend.</div>
-          </div>
-          <div class="button-row" style="margin-top: 0;">
-            <button class="secondary-btn" onclick="loadRuns()">Refresh Runs</button>
-            <button class="secondary-btn" onclick="clearRuns()">Clear Runs</button>
-          </div>
-        </div>
-
-        <div id="runsList" class="runs">
-          <div class="empty">Loading runs...</div>
-        </div>
+        <h2>Past Runs</h2>
+        <div id="runs" class="empty">No runs yet</div>
       </div>
+
     </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>Latest Result</h2>
+      <pre id="result" class="empty">Run something to see results</pre>
+    </div>
+
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    const API_BASE = "https://agentrail-api.onrender.com";
+
+    async function runAgent() {
+      const data = {
+        prompt: document.getElementById("prompt").value,
+        tool: document.getElementById("tool").value,
+        model: document.getElementById("model").value,
+        actor: document.getElementById("actor").value
+      };
+
+      const res = await fetch(API_BASE + "/run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const json = await res.json();
+      document.getElementById("result").textContent =
+        JSON.stringify(json, null, 2);
+
+      loadRuns();
+    }
+
+    async function loadRuns() {
+      const res = await fetch(API_BASE + "/runs");
+      const runs = await res.json();
+
+      const container = document.getElementById("runs");
+
+      if (!runs.length) {
+        container.innerHTML = "No runs yet";
+        return;
+      }
+
+      container.innerHTML = runs.map(r =>
+        `<div style="margin-bottom:10px;">${r.prompt}</div>`
+      ).join("");
+    }
+
+    loadRuns();
+  </script>
+
 </body>
 </html>
