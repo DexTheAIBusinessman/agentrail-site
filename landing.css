@@ -547,3 +547,15 @@ h2 {
     font-size: 22px;
   }
 }
+.custom-logo {
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(0, 140, 255, 0.35));
+  transition: all 0.25s ease;
+}
+
+.custom-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(0, 140, 255, 0.6));
+}
