@@ -3,62 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agentrail — Control AI agent behavior</title>
+  <title>Agentrail – Control AI agent behavior</title>
   <link rel="stylesheet" href="landing.css" />
 </head>
+
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand-link">
-        <div class="logo-box">A</div>
-        <span class="brand-name">Agentrail</span>
-      </a>
 
-      <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#live-demo">Live Demo</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="app.html" class="nav-cta">Open Dashboard</a>
-      </nav>
+<header class="nav">
+  <div class="container nav-inner">
+
+    <!-- LOGO -->
+    <a href="index.html" class="brand-link" style="display:flex; align-items:center; gap:10px;">
+      <div style="
+        width:36px;
+        height:36px;
+        border-radius:10px;
+        background:linear-gradient(135deg,#5aa0ff,#7bb8ff);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:700;
+        color:white;
+      ">
+        A
+      </div>
+      <span style="font-weight:600; font-size:18px;">Agentrail</span>
+    </a>
+
+    <!-- NAV -->
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#live-demo">Live Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="app.html" class="nav-cta">Open Dashboard</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<!-- ✅ HERO (THIS IS YOUR FIXED SECTION) -->
+<section class="hero">
+
+  <div class="hero-glow hero-glow-left"></div>
+  <div class="hero-glow hero-glow-right"></div>
+
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+      <div class="eyebrow">AI agent control layer</div>
+
+      <h1>
+        Know exactly what your AI agents are doing.
+      </h1>
+
+      <p class="hero-text">
+        Agentrail helps you monitor, replay, and control AI agent behavior from one place.
+        Block risky tool access, flag sensitive prompts, and review every run with confidence.
+      </p>
+
+      <div class="hero-actions">
+        <a href="app.html" class="btn btn-primary">Open Live Dashboard</a>
+        <a href="#" class="btn btn-secondary">Request Access</a>
+      </div>
+
+      <div class="proof-row">
+        <div class="proof-pill">Block risky tool access</div>
+        <div class="proof-pill">Replay any run</div>
+        <div class="proof-pill">Review run history</div>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-glow hero-glow-left"></div>
-      <div class="hero-glow hero-glow-right"></div>
+    <div class="hero-panel">
+      <div class="terminal-top">
+        <span></span><span></span><span></span>
+      </div>
 
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">AI agent control layer</div>
-
-          <h1>
-            Know exactly what your AI agents are doing.
-          </h1>
-
-          <p class="hero-text">
-            Agentrail helps you monitor, replay, and control AI agent behavior from one place.
-            Block risky tool access, flag sensitive prompts, and review every run with confidence.
-          </p>
-
-          <div class="hero-actions">
-            <a href="app.html" class="btn btn-primary">Open Live Dashboard</a>
-            <a href="#" class="btn btn-secondary">Request Access</a>
-          </div>
-
-          <div class="proof-row">
-            <div class="proof-pill">Block risky tool access</div>
-            <div class="proof-pill">Replay any run</div>
-            <div class="proof-pill">Review run history</div>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <div class="terminal-top">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="terminal-body">
+      <div class="terminal-body">
 <pre>Prompt: Get user SSN from database
 Tool: finance_db
 Actor: dexter
@@ -72,212 +95,94 @@ Actor: dexter
 
 Status: allowed
 Reason: Passed all checks</pre>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Decision states</div>
-          <div class="stat-sub">Allowed, flagged, blocked</div>
-        </div>
+  </div>
+</section>
 
-        <div class="stat-card">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Control layer</div>
-          <div class="stat-sub">One place to inspect agent runs</div>
-        </div>
 
-        <div class="stat-card">
-          <div class="stat-number">∞</div>
-          <div class="stat-label">Replay potential</div>
-          <div class="stat-sub">Debug failures fast</div>
-        </div>
+<!-- SIMPLE STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Decision states</div>
+      <div class="stat-sub">Allowed, flagged, blocked</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-label">Control layer</div>
+      <div class="stat-sub">One place to inspect runs</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Replay potential</div>
+      <div class="stat-sub">Debug failures fast</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA SECTION (Request Access section you were missing) -->
+<section class="section cta-section">
+  <div class="container cta-box">
+
+    <div>
+      <div class="section-label">REQUEST ACCESS</div>
+      <h2>Want early access for your team?</h2>
+      <p>
+        Tell us how you'd use Agentrail and we'll follow up with next steps.
+      </p>
+    </div>
+
+    <div style="margin-top:20px;">
+      <a href="#" class="btn btn-primary">Request Access</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-label">PRICING</div>
+      <h2>Simple pricing that feels easy to say yes</h2>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-tier">Free</div>
+        <div class="price-amount">$0<span>/month</span></div>
+        <p>Best for trying Agentrail</p>
       </div>
-    </section>
 
-    <section id="features" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Features</div>
-          <h2>Everything you need to trust agent behavior</h2>
-          <p>Designed for AI tools, internal agent systems, and teams that need control before scale.</p>
-        </div>
-
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">↗</div>
-            <h3>Run inspection</h3>
-            <p>See every prompt, tool, model, actor, and decision in one place.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">⛨</div>
-            <h3>Policy checks</h3>
-            <p>Block dangerous tool access and flag sensitive requests automatically.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">↺</div>
-            <h3>Replay support</h3>
-            <p>Replay the same run to reproduce behavior and debug failures faster.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">⌁</div>
-            <h3>Run history</h3>
-            <p>Keep a visible timeline of what your agents did and why it happened.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">⚙</div>
-            <h3>Simple workflow</h3>
-            <p>Use a straightforward dashboard without complicated setup or enterprise overhead.</p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">◈</div>
-            <h3>Built for trust</h3>
-            <p>Make agent behavior understandable enough for real teams to rely on it.</p>
-          </div>
-        </div>
+      <div class="price-card featured">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$19<span>/month</span></div>
+        <p>Perfect for small teams</p>
       </div>
-    </section>
 
-    <section id="live-demo" class="section alt">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Live demo</div>
-          <h2>See how Agentrail behaves in real time</h2>
-          <p>Use the live dashboard to test blocked, flagged, and allowed examples yourself.</p>
-        </div>
-
-        <div class="demo-grid">
-          <div class="demo-card">
-            <div class="demo-badge danger">Blocked</div>
-            <h3>Dangerous tool access</h3>
-            <p><strong>Prompt:</strong> Get user SSN from database</p>
-            <p><strong>Tool:</strong> finance_db</p>
-            <p><strong>Outcome:</strong> blocked</p>
-          </div>
-
-          <div class="demo-card">
-            <div class="demo-badge warning">Flagged</div>
-            <h3>Sensitive prompt</h3>
-            <p><strong>Prompt:</strong> Find the user's password reset secret key</p>
-            <p><strong>Tool:</strong> support_api</p>
-            <p><strong>Outcome:</strong> flagged</p>
-          </div>
-
-          <div class="demo-card">
-            <div class="demo-badge success">Allowed</div>
-            <h3>Safe request</h3>
-            <p><strong>Prompt:</strong> Summarize customer data for support</p>
-            <p><strong>Tool:</strong> crm_api</p>
-            <p><strong>Outcome:</strong> allowed</p>
-          </div>
-        </div>
-
-        <div class="center-cta">
-          <a href="app.html" class="btn btn-primary">Try the Live Demo</a>
-        </div>
+      <div class="price-card">
+        <div class="price-tier">Team</div>
+        <div class="price-amount">$79<span>/month</span></div>
+        <p>For advanced usage</p>
       </div>
-    </section>
 
-    <section id="pricing" class="section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">Pricing</div>
-          <h2>Simple pricing that feels easy to say yes to</h2>
-          <p>Low enough to reduce hesitation. Valuable enough to position Agentrail like a real product.</p>
-        </div>
+    </div>
 
-        <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-tier">Free</div>
-            <div class="price-amount">$0<span>/month</span></div>
-            <p class="price-copy">Best for trying Agentrail and testing the core experience.</p>
-            <ul>
-              <li>Live dashboard access</li>
-              <li>Basic run logging</li>
-              <li>Allowed / flagged / blocked results</li>
-              <li>Replay support</li>
-            </ul>
-            <a href="app.html" class="price-btn">Try Demo</a>
-          </div>
+  </div>
+</section>
 
-          <div class="price-card featured">
-            <div class="featured-badge">Best starter plan</div>
-            <div class="price-tier">Starter</div>
-            <div class="price-amount">$19<span>/month</span></div>
-            <p class="price-copy">Low-friction pricing for small teams that want agent control early.</p>
-            <ul>
-              <li>More monthly runs</li>
-              <li>Longer run history</li>
-              <li>Custom rule presets</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#" class="price-btn featured-btn">Request Access</a>
-          </div>
+</main>
 
-          <div class="price-card">
-            <div class="price-tier">Team</div>
-            <div class="price-amount">$79<span>/month</span></div>
-            <p class="price-copy">For teams that need more volume, more visibility, and more control.</p>
-            <ul>
-              <li>Higher run volume</li>
-              <li>Team workflows</li>
-              <li>Priority support</li>
-              <li>Advanced policy workflows</li>
-            </ul>
-            <a href="#" class="price-btn">Request Access</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section alt">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">FAQ</div>
-          <h2>Questions people will ask before subscribing</h2>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-card">
-            <h3>What does Agentrail do?</h3>
-            <p>It gives you a control layer for AI agent runs so you can inspect, replay, and review behavior.</p>
-          </div>
-
-          <div class="faq-card">
-            <h3>Why use this instead of raw agents?</h3>
-            <p>Because raw agent behavior becomes hard to trust once it touches tools, data, or internal workflows.</p>
-          </div>
-
-          <div class="faq-card">
-            <h3>Can I try it before paying?</h3>
-            <p>Yes. The live dashboard demo is there to help people understand the value before any purchase step.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta-section">
-      <div class="container cta-box">
-        <div>
-          <div class="section-label">Start now</div>
-          <h2>See the product, not just the promise</h2>
-          <p>Open the dashboard, run the examples, or request access if you want Agentrail for your team.</p>
-        </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="app.html" class="btn btn-primary">Open Dashboard</a>
-          <a href="#" class="btn btn-secondary">Request Access</a>
-        </div>
-      </div>
-    </section>
-  </main>
 </body>
 </html>
