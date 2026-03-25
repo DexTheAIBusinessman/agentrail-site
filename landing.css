@@ -559,3 +559,34 @@ h2 {
   transform: scale(1.05);
   filter: drop-shadow(0 0 20px rgba(0, 140, 255, 0.6));
 }
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #5b8cff, #7aa7ff);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 0 16px rgba(91, 140, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  white-space: nowrap;
+}
