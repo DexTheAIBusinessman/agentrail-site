@@ -604,3 +604,54 @@ h2 {
   gap: 20px;
   padding: 28px 0;
   flex-wrap: wrap;
+}
+
+/* ===== PREMIUM NAV LOGO ===== */
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-logo-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #5b8cff, #7aa7ff);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 12px 30px rgba(91, 140, 255, 0.24),
+    0 0 20px rgba(91, 140, 255, 0.12);
+  transition: 0.2s ease;
+  flex-shrink: 0;
+}
+
+.brand-logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-link:hover .brand-logo-box {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 16px 34px rgba(91, 140, 255, 0.3),
+    0 0 24px rgba(91, 140, 255, 0.18);
+}
+
+.brand-link:hover .brand-logo-text {
+  color: #f7fbff;
+}
