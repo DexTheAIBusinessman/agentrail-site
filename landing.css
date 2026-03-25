@@ -591,21 +591,6 @@ h2 {
   white-space: nowrap;
 }
 
-.site-footer {
-  margin-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(4, 10, 24, 0.7);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 28px 0;
-  flex-wrap: wrap;
-}
-
 /* ===== PREMIUM NAV LOGO ===== */
 
 .brand-link {
@@ -654,4 +639,104 @@ h2 {
 
 .brand-link:hover .brand-logo-text {
   color: #f7fbff;
+}
+
+/* ===== PREMIUM FOOTER ===== */
+
+.site-footer {
+  margin-top: 72px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(8, 14, 28, 0.92) 0%, rgba(5, 10, 22, 0.98) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 10%;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  background: rgba(91, 140, 255, 0.08);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 34px 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 10px 28px rgba(91, 140, 255, 0.22),
+    0 0 18px rgba(91, 140, 255, 0.18);
+}
+
+.footer-brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #9eb4de;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 28px;
+}
+
+.footer-copy {
+  margin: 0;
+  color: #6f86b1;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 18px;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 0 18px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
 }
