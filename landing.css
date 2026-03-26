@@ -613,13 +613,12 @@ h2 {
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 12px 30px rgba(91, 140, 255, 0.24),
-    0 0 20px rgba(91, 140, 255, 0.12);
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 10px 28px rgba(91, 140, 255, 0.22),
+    0 0 18px rgba(91, 140, 255, 0.18);
   transition: 0.2s ease;
   flex-shrink: 0;
 }
-
 .brand-logo-text {
   font-size: 22px;
   font-weight: 800;
