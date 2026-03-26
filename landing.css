@@ -614,8 +614,8 @@ h2 {
   justify-content: center;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 10px 28px rgba(91, 140, 255, 0.22),
-    0 0 18px rgba(91, 140, 255, 0.18);
+    0 12px 30px rgba(91, 140, 255, 0.28),
+    0 0 24px rgba(91, 140, 255, 0.22);
   transition: 0.2s ease;
   flex-shrink: 0;
 }
