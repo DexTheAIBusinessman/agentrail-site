@@ -313,9 +313,14 @@ Reason: Passed all checks</pre>
   </div>
 
   <div class="container footer-bottom">
-    <p class="footer-copy">© 2026 Agentrail. Built for safer AI agent workflows.</p>
+    <p class="footer-copy">© <span id="footer-year"></span> Agentrail. Built for safer AI agent workflows.</p>
   </div>
 </footer>
-  </main>
+
+</main>
+
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
