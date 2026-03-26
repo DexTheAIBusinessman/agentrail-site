@@ -15,7 +15,7 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background:
         radial-gradient(circle at top left, rgba(91, 140, 255, 0.14), transparent 28%),
         radial-gradient(circle at top right, rgba(88, 255, 190, 0.06), transparent 22%),
@@ -25,259 +25,277 @@
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
-    .nav {
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      border-right: 1px solid rgba(110, 139, 216, 0.12);
+      background: rgba(7, 14, 28, 0.84);
+      backdrop-filter: blur(14px);
+      padding: 22px 18px;
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(5, 12, 24, 0.72);
-      border-bottom: 1px solid rgba(110, 139, 216, 0.12);
+      height: 100vh;
     }
 
-    .container {
-      width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .logo-wrap {
+    .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      margin-bottom: 28px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #5b8cff, #7aa7ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 12px 30px rgba(91,140,255,0.24),
+        0 0 20px rgba(91,140,255,0.12);
+    }
+
+    .brand-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .side-section-label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7f98c7;
+      margin: 20px 0 10px;
+      font-weight: 700;
+    }
+
+    .side-nav {
       display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #5b8cff, #7da7ff);
-      color: white;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(91, 140, 255, 0.28);
+      gap: 8px;
     }
 
-    .logo-text {
-      font-size: 26px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.02em;
+    .side-link {
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #bfd0ef;
+      background: transparent;
+      transition: 0.18s ease;
+      border: 1px solid transparent;
     }
 
-    .back-link {
-      padding: 12px 16px;
+    .side-link:hover,
+    .side-link.active {
+      background: rgba(18, 31, 58, 0.9);
+      border: 1px solid rgba(84, 112, 173, 0.26);
+      color: #fff;
+    }
+
+    .sidebar-bottom {
+      margin-top: 28px;
+    }
+
+    .back-home {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      padding: 12px 14px;
       border-radius: 14px;
       background: rgba(18, 31, 58, 0.9);
-      color: #dce7ff;
       border: 1px solid rgba(84, 112, 173, 0.26);
+      color: #dce7ff;
       font-weight: 700;
-      font-size: 14px;
-      transition: 0.18s ease;
     }
 
-    .back-link:hover {
-      transform: translateY(-1px);
-      border-color: rgba(104, 138, 216, 0.36);
+    .main {
+      padding: 24px;
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 56px 0 28px;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
-    .hero-glow {
-      position: absolute;
-      width: 420px;
-      height: 420px;
+    .topbar-left h1 {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .topbar-left p {
+      margin: 0;
+      color: #aec3ec;
+      font-size: 16px;
+    }
+
+    .status-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .status-pill {
+      padding: 10px 14px;
       border-radius: 999px;
-      filter: blur(90px);
-      opacity: 0.22;
-      pointer-events: none;
-    }
-
-    .hero-glow-left {
-      top: -100px;
-      left: -90px;
-      background: #3f78ff;
-    }
-
-    .hero-glow-right {
-      top: 10px;
-      right: -120px;
-      background: #0ea5e9;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(26, 42, 75, 0.88);
-      color: #a9c0f6;
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
-      border: 1px solid rgba(104, 138, 216, 0.18);
-    }
-
-    h1 {
-      font-size: 56px;
-      line-height: 0.98;
-      margin: 0 0 16px;
-      color: #ffffff;
-      letter-spacing: -0.04em;
-      max-width: 760px;
-    }
-
-    .hero-text {
-      font-size: 19px;
-      line-height: 1.65;
-      color: #bfd0ef;
-      max-width: 760px;
-      margin: 0 0 28px;
+      font-weight: 800;
+      border: 1px solid rgba(84, 112, 173, 0.26);
+      background: rgba(18, 31, 58, 0.9);
+      color: #dce7ff;
     }
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
+      grid-template-columns: 1.25fr 0.95fr;
       gap: 20px;
-      align-items: start;
-      margin-top: 18px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    .card {
+    .panel {
       background: linear-gradient(180deg, rgba(17, 26, 47, 0.96) 0%, rgba(14, 20, 37, 0.92) 100%);
       border: 1px solid rgba(76, 104, 168, 0.18);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 22px;
+      padding: 22px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
-      transition: 0.18s ease;
     }
 
-    .card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(104, 138, 216, 0.28);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      color: #ffffff;
+    .panel h2 {
+      margin: 0 0 10px;
       font-size: 24px;
-      letter-spacing: -0.02em;
+      color: #fff;
     }
 
-    label {
+    .panel-sub {
+      margin: 0 0 18px;
+      color: #9eb4de;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
       display: block;
-      margin-top: 14px;
       margin-bottom: 8px;
+      font-size: 14px;
       font-weight: 700;
-      color: #d9e2f2;
+      color: #dce7ff;
     }
 
-    input, select, textarea {
+    .input,
+    .select,
+    .textarea {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid #2d3b63;
-      background: #0e1528;
-      color: #e8ecf3;
-      font-size: 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(84, 112, 173, 0.26);
+      background: rgba(10, 18, 35, 0.9);
+      color: #edf2ff;
+      padding: 14px 15px;
       outline: none;
-      box-sizing: border-box;
-      transition: 0.15s ease;
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color: #5b8cff;
-      box-shadow: 0 0 0 3px rgba(91, 140, 255, 0.18);
-    }
-
-    textarea {
-      min-height: 130px;
+    .textarea {
+      min-height: 140px;
       resize: vertical;
     }
 
-    .button-row {
+    .input:focus,
+    .select:focus,
+    .textarea:focus {
+      border-color: rgba(103, 149, 255, 0.8);
+      box-shadow: 0 0 0 3px rgba(103, 149, 255, 0.12);
+    }
+
+    .action-row {
       display: flex;
       gap: 12px;
-      margin-top: 18px;
       flex-wrap: wrap;
+      margin-top: 10px;
     }
 
-    button {
-      border: none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      cursor: pointer;
-      font-size: 14px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
       font-weight: 700;
-      transition: transform 0.08s ease, opacity 0.12s ease, background 0.15s ease;
+      border: none;
+      cursor: pointer;
+      transition: 0.18s ease;
     }
 
-    button:hover {
-      opacity: 0.96;
+    .btn:hover {
       transform: translateY(-1px);
     }
 
-    button:active {
-      transform: translateY(1px);
-    }
-
-    .primary-btn {
+    .btn-primary {
       background: linear-gradient(180deg, #6795ff 0%, #4f83ff 100%);
       color: white;
-      flex: 1;
-      min-width: 180px;
       box-shadow: 0 12px 28px rgba(91, 140, 255, 0.18);
     }
 
-    .secondary-btn,
-    .replay-btn {
+    .btn-secondary {
       background: rgba(18, 31, 58, 0.9);
       color: #dce7ff;
       border: 1px solid rgba(84, 112, 173, 0.26);
-      min-width: 170px;
     }
 
-    .secondary-btn:hover,
-    .replay-btn:hover {
-      background: rgba(26, 42, 75, 0.96);
+    .btn-ghost {
+      background: transparent;
+      color: #bfd0ef;
+      border: 1px solid rgba(84, 112, 173, 0.26);
     }
 
-    .result-box {
-      margin-top: 18px;
-      border-radius: 16px;
+    .mini-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .result-box,
+    .logs-box,
+    .runs-box {
+      border-radius: 18px;
+      background: rgba(10, 18, 35, 0.75);
+      border: 1px solid rgba(84, 112, 173, 0.2);
       padding: 16px;
-      border: 1px solid rgba(76, 104, 168, 0.18);
-      background: rgba(9, 16, 30, 0.85);
-      min-height: 120px;
+      min-height: 170px;
     }
 
-    .result-title,
-    .block-title {
-      font-size: 12px;
-      text-transform: uppercase;
+    .box-title {
+      margin: 0 0 12px;
+      font-size: 13px;
       letter-spacing: 0.08em;
-      color: #8ea5cf;
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #8fb2ff;
       font-weight: 800;
     }
 
@@ -286,299 +304,410 @@
       white-space: pre-wrap;
       word-break: break-word;
       font-family: Consolas, monospace;
-      color: #e8ecf3;
+      color: #dce7ff;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .empty-state {
+      color: #8ea5d1;
+      font-size: 15px;
       line-height: 1.6;
     }
 
-    .hint-strip {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: rgba(91, 140, 255, 0.08);
-      border: 1px solid rgba(91, 140, 255, 0.18);
-      color: #bfd0ef;
-      font-size: 14px;
-      line-height: 1.5;
+    .logs-list,
+    .runs-list {
+      display: grid;
+      gap: 10px;
     }
 
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .muted {
-      color: #93a8cf;
-      font-size: 14px;
-    }
-
-    .runs {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
+    .log-item,
     .run-item {
-      border-radius: 16px;
-      padding: 16px;
-      background: rgba(12, 20, 37, 0.92);
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(16, 25, 46, 0.84);
       border: 1px solid rgba(76, 104, 168, 0.16);
-      transition: 0.18s ease;
     }
 
-    .run-item:hover {
-      border-color: rgba(104, 138, 216, 0.30);
-      transform: translateY(-1px);
-    }
-
-    .run-head {
+    .log-top,
+    .run-top {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      align-items: center;
-      margin-bottom: 12px;
       flex-wrap: wrap;
+      margin-bottom: 8px;
     }
 
-    .run-id {
-      font-size: 15px;
+    .log-label,
+    .run-label {
+      color: #fff;
       font-weight: 700;
-      color: #ffffff;
+      font-size: 14px;
     }
 
-    .badge {
+    .log-meta,
+    .run-meta {
+      color: #8ea5d1;
+      font-size: 12px;
+    }
+
+    .status-badge {
       display: inline-block;
-      padding: 6px 10px;
+      padding: 7px 10px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
     }
 
-    .badge.blocked {
-      background: rgba(255, 95, 95, 0.14);
-      color: #ff9d9d;
-      border: 1px solid rgba(255, 95, 95, 0.35);
+    .blocked {
+      background: rgba(239, 68, 68, 0.16);
+      color: #fca5a5;
     }
 
-    .badge.flagged {
-      background: rgba(255, 191, 71, 0.14);
-      color: #ffd37d;
-      border: 1px solid rgba(255, 191, 71, 0.35);
+    .flagged {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fcd34d;
     }
 
-    .badge.allowed {
-      background: rgba(81, 207, 102, 0.14);
-      color: #9ef0aa;
-      border: 1px solid rgba(81, 207, 102, 0.35);
+    .allowed {
+      background: rgba(34, 197, 94, 0.16);
+      color: #86efac;
     }
 
-    .meta {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 16px;
-      margin-bottom: 12px;
+    .bottom-panel {
+      margin-top: 20px;
     }
 
-    .meta div {
-      color: #dce6f7;
-      font-size: 14px;
+    .runs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
     }
 
-    .meta strong {
-      color: #8ea5cf;
-    }
-
-    .block {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(8, 14, 27, 0.9);
-      border: 1px solid rgba(76, 104, 168, 0.14);
-      border-radius: 12px;
-    }
-
-    .run-actions {
-      margin-top: 14px;
+    .runs-actions {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .empty {
-      padding: 18px;
-      border-radius: 14px;
-      background: rgba(10, 18, 33, 0.86);
-      border: 1px dashed rgba(84, 112, 173, 0.26);
-      color: #93a8cf;
-      text-align: center;
-    }
-
-    .mini-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 10px;
-      margin-bottom: 30px;
-    }
-
-    .mini-stat {
-      background: rgba(16, 25, 46, 0.84);
-      border: 1px solid rgba(76, 104, 168, 0.16);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .mini-stat-number {
-      font-size: 28px;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-
-    .mini-stat-label {
-      color: #b6c8ea;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
     @media (max-width: 1024px) {
-      h1 {
-        font-size: 44px;
+      .app-shell {
+        grid-template-columns: 1fr;
       }
 
-      .dashboard-grid,
-      .mini-stats {
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(110, 139, 216, 0.12);
+      }
+
+      .dashboard-grid {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 680px) {
-      .nav-inner {
+      .main {
+        padding: 16px;
+      }
+
+      .topbar-left h1 {
+        font-size: 28px;
+      }
+
+      .action-row,
+      .runs-actions,
+      .status-pills {
         flex-direction: column;
-        align-items: flex-start;
       }
 
-      .hero {
-        padding-top: 42px;
-      }
-
-      h1 {
-        font-size: 36px;
-      }
-
-      .hero-text {
-        font-size: 17px;
-      }
-
-      .logo-text {
-        font-size: 22px;
+      .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="logo-wrap">
-        <div class="logo-mark">A</div>
-        <div class="logo-text">Agentrail</div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div class="brand-text">Agentrail</div>
       </div>
 
-      <a href="index.html" class="back-link">Back to Home</a>
-    </div>
-  </header>
+      <div class="side-section-label">Workspace</div>
+      <nav class="side-nav">
+        <a href="#" class="side-link active">Dashboard</a>
+        <a href="#new-run" class="side-link">New Run</a>
+        <a href="#latest-result" class="side-link">Latest Result</a>
+        <a href="#past-runs" class="side-link">Past Runs</a>
+        <a href="#activity-log" class="side-link">Activity Log</a>
+      </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-glow hero-glow-left"></div>
-      <div class="hero-glow hero-glow-right"></div>
+      <div class="side-section-label">Examples</div>
+      <nav class="side-nav">
+        <a href="#" class="side-link" onclick="fillExample('blocked'); return false;">Blocked Example</a>
+        <a href="#" class="side-link" onclick="fillExample('flagged'); return false;">Flagged Example</a>
+        <a href="#" class="side-link" onclick="fillExample('allowed'); return false;">Allowed Example</a>
+      </nav>
 
-      <div class="container hero-content">
-        <div class="eyebrow">Live dashboard</div>
-        <h1>Control agent behavior in real time</h1>
-        <p class="hero-text">
-          Run examples, inspect outcomes, replay behavior, and review saved runs — all from one dashboard that matches the Agentrail product experience.
-        </p>
+      <div class="sidebar-bottom">
+        <a href="index.html" class="back-home">Back to Home</a>
+      </div>
+    </aside>
 
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <div class="mini-stat-number">3</div>
-            <div class="mini-stat-label">Core decision states: allowed, flagged, blocked</div>
-          </div>
-          <div class="mini-stat">
-            <div class="mini-stat-number">1</div>
-            <div class="mini-stat-label">Live control surface for testing real agent behavior</div>
-          </div>
-          <div class="mini-stat">
-            <div class="mini-stat-number">∞</div>
-            <div class="mini-stat-label">Replay potential for debugging and trust-building</div>
-          </div>
+    <main class="main">
+      <div class="topbar">
+        <div class="topbar-left">
+          <h1>Control agent behavior in real time</h1>
+          <p>Run examples, inspect outcomes, replay behavior, and review saved runs — all from one dashboard that matches the Agentrail product experience.</p>
         </div>
 
-        <div class="dashboard-grid">
-          <div class="card">
-            <h2>New Agent Run</h2>
+        <div class="status-pills">
+          <div class="status-pill">3 core decision states</div>
+          <div class="status-pill">Replay-ready workflow</div>
+          <div class="status-pill">Live control surface</div>
+        </div>
+      </div>
 
+      <div class="dashboard-grid">
+        <section class="panel" id="new-run">
+          <h2>New Agent Run</h2>
+          <p class="panel-sub">Run a prompt through Agentrail and inspect the decision instantly.</p>
+
+          <div class="field">
             <label for="prompt">Prompt</label>
-            <textarea id="prompt">Get user SSN from database</textarea>
+            <textarea id="prompt" class="textarea" placeholder="Enter the agent request here...">Get user SSN from database</textarea>
+          </div>
 
+          <div class="field">
             <label for="tool">Tool</label>
-            <select id="tool">
+            <select id="tool" class="select">
               <option value="finance_db">finance_db</option>
-              <option value="crm_api">crm_api</option>
               <option value="support_api">support_api</option>
-              <option value="payroll_db">payroll_db</option>
-              <option value="prod_admin_api">prod_admin_api</option>
+              <option value="crm_api">crm_api</option>
+              <option value="email_api">email_api</option>
+              <option value="calendar_api">calendar_api</option>
+              <option value="notes_api">notes_api</option>
             </select>
+          </div>
 
+          <div class="field">
             <label for="model">Model</label>
-            <input id="model" value="demo-model" />
+            <input id="model" class="input" type="text" value="demo-model" />
+          </div>
 
+          <div class="field">
             <label for="actor">Actor</label>
-            <input id="actor" value="dexter" />
+            <input id="actor" class="input" type="text" value="dexter" />
+          </div>
 
-            <div class="button-row">
-              <button class="primary-btn" onclick="runAgent()">Run through Agentrail</button>
-              <button class="secondary-btn" onclick="fillExample('blocked')">Blocked Example</button>
-              <button class="secondary-btn" onclick="fillExample('flagged')">Flagged Example</button>
-              <button class="secondary-btn" onclick="fillExample('allowed')">Allowed Example</button>
-            </div>
+          <div class="action-row">
+            <button class="btn btn-primary" onclick="runAgent()">Run through Agentrail</button>
+            <button class="btn btn-secondary" onclick="fillExample('blocked')">Blocked Example</button>
+            <button class="btn btn-secondary" onclick="fillExample('flagged')">Flagged Example</button>
+            <button class="btn btn-secondary" onclick="fillExample('allowed')">Allowed Example</button>
+          </div>
+        </section>
 
+        <div class="mini-grid">
+          <section class="panel" id="latest-result">
+            <h2>Latest Result</h2>
+            <p class="panel-sub">Your newest decision outcome will appear here.</p>
             <div class="result-box">
-              <div class="result-title">Latest Result</div>
+              <div class="box-title">Latest decision</div>
               <pre id="result">No result yet.</pre>
             </div>
+          </section>
 
-            <div class="hint-strip">
-              Tip: on the free backend tier, the first request after inactivity can take a little longer while Render wakes up.
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="toolbar">
-              <div>
-                <h2 style="margin: 0;">Past Runs</h2>
-                <div class="muted">Every run saved by your live Agentrail backend.</div>
+          <section class="panel" id="activity-log">
+            <h2>Run Activity</h2>
+            <p class="panel-sub">A live-style activity panel that makes the dashboard feel operational.</p>
+            <div class="logs-box">
+              <div class="box-title">Recent activity</div>
+              <div class="logs-list" id="activity">
+                <div class="log-item">
+                  <div class="log-top">
+                    <div class="log-label">System ready</div>
+                    <div class="log-meta">just now</div>
+                  </div>
+                  <div class="empty-state">Waiting for your next agent run.</div>
+                </div>
               </div>
-              <div class="button-row" style="margin-top: 0;">
-                <button class="secondary-btn" onclick="loadRuns()">Refresh Runs</button>
-                <button class="secondary-btn" onclick="clearRuns()">Clear Runs</button>
-              </div>
             </div>
-
-            <div id="runsList" class="runs">
-              <div class="empty">Loading runs...</div>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
-    </section>
-  </main>
 
-  <script src="app.js"></script>
+      <section class="panel bottom-panel" id="past-runs">
+        <div class="runs-header">
+          <div>
+            <h2>Past Runs</h2>
+            <p class="panel-sub">Saved runs appear here after each test so the dashboard feels persistent and audit-friendly.</p>
+          </div>
+
+          <div class="runs-actions">
+            <button class="btn btn-ghost" onclick="loadRuns()">Refresh Runs</button>
+            <button class="btn btn-ghost" onclick="clearRuns()">Clear Runs</button>
+          </div>
+        </div>
+
+        <div class="runs-box">
+          <div class="box-title">Saved history</div>
+          <div class="runs-list" id="runs">
+            <div class="empty-state">No runs yet. Run something to see saved history.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const API_BASE = "https://agentrail-api.onrender.com";
+
+    function prettyJson(data) {
+      return JSON.stringify(data, null, 2);
+    }
+
+    function setResult(data) {
+      document.getElementById("result").textContent =
+        typeof data === "string" ? data : prettyJson(data);
+    }
+
+    function addActivity(label, meta, text) {
+      const activity = document.getElementById("activity");
+      const item = document.createElement("div");
+      item.className = "log-item";
+      item.innerHTML = `
+        <div class="log-top">
+          <div class="log-label">${escapeHtml(label)}</div>
+          <div class="log-meta">${escapeHtml(meta)}</div>
+        </div>
+        <div class="empty-state">${escapeHtml(text)}</div>
+      `;
+      activity.prepend(item);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function fillExample(type) {
+      const prompt = document.getElementById("prompt");
+      const tool = document.getElementById("tool");
+      const model = document.getElementById("model");
+      const actor = document.getElementById("actor");
+
+      model.value = "demo-model";
+      actor.value = "dexter";
+
+      if (type === "blocked") {
+        prompt.value = "Get user SSN from database";
+        tool.value = "finance_db";
+      } else if (type === "flagged") {
+        prompt.value = "Find the user's password reset secret key";
+        tool.value = "support_api";
+      } else {
+        prompt.value = "Summarize customer data for support";
+        tool.value = "crm_api";
+      }
+
+      addActivity("Example loaded", "just now", `${type} example loaded into the form.`);
+    }
+
+    async function runAgent() {
+      const prompt = document.getElementById("prompt").value.trim();
+      const tool = document.getElementById("tool").value;
+      const model = document.getElementById("model").value.trim();
+      const actor = document.getElementById("actor").value.trim();
+
+      if (!prompt || !tool || !model || !actor) {
+        setResult("Please complete every field before running.");
+        addActivity("Run blocked", "just now", "A required field was empty.");
+        return;
+      }
+
+      const payload = { prompt, tool, model, actor };
+
+      setResult("Running...");
+      addActivity("Run started", "just now", `${actor} triggered ${tool}.`);
+
+      try {
+        const response = await fetch(`${API_BASE}/run`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        setResult(data);
+
+        const status = data.status || "completed";
+        const reason = data.reason || "Run completed.";
+        addActivity(`Run ${status}`, "just now", reason);
+
+        loadRuns();
+      } catch (error) {
+        setResult(`Error: ${error.message}`);
+        addActivity("Run failed", "just now", error.message);
+      }
+    }
+
+    async function loadRuns() {
+      const runsEl = document.getElementById("runs");
+      runsEl.innerHTML = `<div class="empty-state">Loading runs...</div>`;
+
+      try {
+        const response = await fetch(`${API_BASE}/runs`);
+        const data = await response.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          runsEl.innerHTML = `<div class="empty-state">No runs yet. Run something to see saved history.</div>`;
+          return;
+        }
+
+        runsEl.innerHTML = data.map((run, index) => {
+          const status = (run.status || "unknown").toLowerCase();
+          const badgeClass = status === "blocked" ? "blocked" : status === "flagged" ? "flagged" : "allowed";
+          return `
+            <div class="run-item">
+              <div class="run-top">
+                <div class="run-label">Run #${escapeHtml(index + 1)}</div>
+                <div class="status-badge ${badgeClass}">${escapeHtml(run.status || "unknown")}</div>
+              </div>
+              <div class="run-meta">Tool: ${escapeHtml(run.tool || "-")} • Actor: ${escapeHtml(run.actor || "-")}</div>
+              <div class="empty-state" style="margin-top:8px;">${escapeHtml(run.prompt || "No prompt available.")}</div>
+            </div>
+          `;
+        }).join("");
+      } catch (error) {
+        runsEl.innerHTML = `<div class="empty-state">Could not load runs: ${escapeHtml(error.message)}</div>`;
+      }
+    }
+
+    async function clearRuns() {
+      try {
+        await fetch(`${API_BASE}/runs`, { method: "DELETE" });
+        setResult("Run history cleared.");
+        addActivity("History cleared", "just now", "All saved runs were removed.");
+        loadRuns();
+      } catch (error) {
+        setResult(`Error clearing runs: ${error.message}`);
+        addActivity("Clear failed", "just now", error.message);
+      }
+    }
+
+    loadRuns();
+  </script>
 </body>
 </html>
